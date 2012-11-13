@@ -1,9 +1,19 @@
+package com.ofisk.cretaciouspark.models.dinos.impl;
+
+import com.ofisk.cretaciouspark.models.shared.DietType;
+import com.ofisk.cretaciouspark.models.shared.Direction;
+import com.ofisk.cretaciouspark.models.shared.Position;
+import com.ofisk.cretaciouspark.models.dinos.Dinosaur;
+import com.ofisk.cretaciouspark.models.Food;
+import com.ofisk.cretaciouspark.models.Park;
+import com.ofisk.cretaciouspark.models.ParkObject;
+
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
 
 public class Joeasaurus extends Dinosaur {
-    private static final String _name = "Joeasaurus";
+    private static final String _name = "com.ofisk.cretaciouspark.models.dinos.impl.Joeasaurus";
     private static final int _initialCalorieCount = 50000;
     private static final int _movementCost = 70;
     private static final int _calorieWorth = 5000;

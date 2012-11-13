@@ -1,3 +1,12 @@
+package com.ofisk.cretaciouspark.models;
+
+import com.ofisk.cretaciouspark.models.shared.DietType;
+import com.ofisk.cretaciouspark.factories.ParkFactory;
+import com.ofisk.cretaciouspark.models.shared.Position;
+import com.ofisk.cretaciouspark.models.dinos.Dinosaur;
+import com.ofisk.cretaciouspark.models.dinos.IDinosaur;
+import com.ofisk.cretaciouspark.models.plants.Plant;
+
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -133,7 +142,7 @@ public class Park {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("Park Report: \n");
+        sb.append("com.ofisk.cretaciouspark.models.Park Report: \n");
         for(int j = 0; j < _map.length; j++) {
             for(int k = 0; k < _map[0].length; k++) {
                 if(_map[j][k] == null) {

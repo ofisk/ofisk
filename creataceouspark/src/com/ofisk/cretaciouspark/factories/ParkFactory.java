@@ -1,3 +1,17 @@
+package com.ofisk.cretaciouspark.factories;
+
+import com.ofisk.cretaciouspark.models.dinos.IDinosaur;
+import com.ofisk.cretaciouspark.models.dinos.impl.Joeasaurus;
+import com.ofisk.cretaciouspark.models.Park;
+import com.ofisk.cretaciouspark.models.ParkObject;
+import com.ofisk.cretaciouspark.models.plants.Plant;
+import com.ofisk.cretaciouspark.models.dinos.impl.Triceratops;
+import com.ofisk.cretaciouspark.models.dinos.impl.Velociraptor;
+import com.ofisk.cretaciouspark.models.dinos.impl.Triceratops;
+import com.ofisk.cretaciouspark.models.dinos.impl.Joeasaurus;
+import com.ofisk.cretaciouspark.models.dinos.impl.Velociraptor;
+import com.ofisk.cretaciouspark.models.plants.Plant;
+
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;

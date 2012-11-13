@@ -1,3 +1,14 @@
+package com.ofisk.cretaciouspark.views;
+
+import com.ofisk.cretaciouspark.models.Food;
+import com.ofisk.cretaciouspark.models.Park;
+import com.ofisk.cretaciouspark.models.ParkObject;
+import com.ofisk.cretaciouspark.models.dinos.Dinosaur;
+import com.ofisk.cretaciouspark.models.dinos.impl.Joeasaurus;
+import com.ofisk.cretaciouspark.models.dinos.impl.Triceratops;
+import com.ofisk.cretaciouspark.models.dinos.impl.Velociraptor;
+import com.ofisk.cretaciouspark.models.plants.Plant;
+
 import javax.swing.JFrame;
 import java.awt.Color;
 import java.awt.Graphics;

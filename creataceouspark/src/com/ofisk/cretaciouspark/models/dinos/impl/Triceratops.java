@@ -1,9 +1,19 @@
+package com.ofisk.cretaciouspark.models.dinos.impl;
+
+import com.ofisk.cretaciouspark.models.shared.DietType;
+import com.ofisk.cretaciouspark.models.shared.Position;
+import com.ofisk.cretaciouspark.models.dinos.Dinosaur;
+import com.ofisk.cretaciouspark.models.Food;
+import com.ofisk.cretaciouspark.models.Park;
+import com.ofisk.cretaciouspark.models.ParkObject;
+import com.ofisk.cretaciouspark.models.plants.Plant;
+
 import java.util.List;
 import java.util.Random;
 
 public class Triceratops extends Dinosaur {
 
-    private static final String _name = "Triceratops";
+    private static final String _name = "com.ofisk.cretaciouspark.models.dinos.impl.Triceratops";
     private static final int _initCalorieCount = 18000;
     private static final int _movementCost = 60;
     private static final int _calorieWorth = 2400;
@@ -15,7 +25,7 @@ public class Triceratops extends Dinosaur {
 
     @Override
     public String getName() {
-        return "Triceratops";
+        return "com.ofisk.cretaciouspark.models.dinos.impl.Triceratops";
     }
 
     @Override

@@ -1,3 +1,5 @@
+package com.ofisk.cretaciouspark.models.shared;
+
 public class Position {
     private int _horizontal;
     private int _vertical;

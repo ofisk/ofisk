@@ -1,3 +1,11 @@
+package com.ofisk.cretaciouspark.models.dinos;
+
+import com.ofisk.cretaciouspark.models.shared.DietType;
+import com.ofisk.cretaciouspark.models.shared.Position;
+import com.ofisk.cretaciouspark.models.Food;
+import com.ofisk.cretaciouspark.models.Park;
+import com.ofisk.cretaciouspark.models.ParkObject;
+
 import java.util.LinkedList;
 import java.util.List;
 

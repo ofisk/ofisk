@@ -1,9 +1,18 @@
+package com.ofisk.cretaciouspark.models.dinos.impl;
+
+import com.ofisk.cretaciouspark.models.shared.DietType;
+import com.ofisk.cretaciouspark.models.shared.Position;
+import com.ofisk.cretaciouspark.models.dinos.Dinosaur;
+import com.ofisk.cretaciouspark.models.Food;
+import com.ofisk.cretaciouspark.models.Park;
+import com.ofisk.cretaciouspark.models.ParkObject;
+
 import java.util.List;
 import java.util.Random;
 
 public class Velociraptor extends Dinosaur {
 
-    private static final String _name = "Velociraptor";
+    private static final String _name = "com.ofisk.cretaciouspark.models.dinos.impl.Velociraptor";
     private static final int _initCalorieCount = 10000;
     private static final int _movementCost = 120;
     private static final int _calorieWorth = 5000;

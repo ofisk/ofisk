@@ -1,3 +1,9 @@
+package com.ofisk.cretaciouspark.models.plants;
+
+import com.ofisk.cretaciouspark.models.shared.Position;
+import com.ofisk.cretaciouspark.models.Food;
+import com.ofisk.cretaciouspark.models.Park;
+
 public class Plant implements Food {
     private int _calorieWorth;
     private boolean _isPoisonous;
@@ -32,7 +38,7 @@ public class Plant implements Food {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("Plant:: poisonous: " + _isPoisonous + ", calorie worth: " + _calorieWorth);
+        sb.append("com.ofisk.cretaciouspark.models.plants.Plant:: poisonous: " + _isPoisonous + ", calorie worth: " + _calorieWorth);
         return sb.toString();
     }
 }
