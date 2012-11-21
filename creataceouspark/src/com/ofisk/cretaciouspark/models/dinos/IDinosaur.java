@@ -44,4 +44,7 @@ public interface IDinosaur extends Food, ParkObject {
     public void die();
 
     public boolean isDead();
+
+    public Dinosaur reproduce(Dinosaur mate)
+            throws InstantiationException, IllegalAccessException;
 }

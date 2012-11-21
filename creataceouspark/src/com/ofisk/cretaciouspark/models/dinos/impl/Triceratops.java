@@ -7,13 +7,15 @@ import com.ofisk.cretaciouspark.models.Food;
 import com.ofisk.cretaciouspark.models.Park;
 import com.ofisk.cretaciouspark.models.ParkObject;
 import com.ofisk.cretaciouspark.models.plants.Plant;
+import com.ofisk.cretaciouspark.views.tools.GameColors;
 
+import java.awt.Color;
 import java.util.List;
 import java.util.Random;
 
 public class Triceratops extends Dinosaur {
 
-    private static final String _name = "com.ofisk.cretaciouspark.models.dinos.impl.Triceratops";
+    private static final String _name = "Triceratops";
     private static final int _initCalorieCount = 18000;
     private static final int _movementCost = 60;
     private static final int _calorieWorth = 2400;
@@ -21,11 +23,6 @@ public class Triceratops extends Dinosaur {
 
     public Triceratops(Park park) {
         super(_name, park, _initCalorieCount, _movementCost, _calorieWorth, _dietType);
-    }
-
-    @Override
-    public String getName() {
-        return "com.ofisk.cretaciouspark.models.dinos.impl.Triceratops";
     }
 
     @Override
@@ -80,5 +77,10 @@ public class Triceratops extends Dinosaur {
         if(move && getPark().isValidPosition(next, this)) {
             setPosition(next);
         }
+    }
+
+    @Override
+    public Color getColor() {
+        return GameColors.TRICERATOPS_BLUE;
     }
 }

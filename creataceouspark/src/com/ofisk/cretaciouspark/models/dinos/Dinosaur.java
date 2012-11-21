@@ -177,4 +177,14 @@ public abstract class Dinosaur implements IDinosaur {
     public boolean isDead() {
         return _dead;
     }
+
+    public Dinosaur reproduce(Dinosaur mate)
+            throws InstantiationException, IllegalAccessException {
+        return mate.getClass().newInstance();
+    }
+
+    @Override
+    public String getToken() {
+        return getName().charAt(0) + "";
+    }
 }

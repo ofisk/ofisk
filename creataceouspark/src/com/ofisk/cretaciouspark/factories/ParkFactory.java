@@ -1,16 +1,12 @@
 package com.ofisk.cretaciouspark.factories;
 
 import com.ofisk.cretaciouspark.models.dinos.IDinosaur;
-import com.ofisk.cretaciouspark.models.dinos.impl.Joeasaurus;
+import com.ofisk.cretaciouspark.models.dinos.impl.Oviraptor;
 import com.ofisk.cretaciouspark.models.Park;
 import com.ofisk.cretaciouspark.models.ParkObject;
 import com.ofisk.cretaciouspark.models.plants.Plant;
 import com.ofisk.cretaciouspark.models.dinos.impl.Triceratops;
 import com.ofisk.cretaciouspark.models.dinos.impl.Velociraptor;
-import com.ofisk.cretaciouspark.models.dinos.impl.Triceratops;
-import com.ofisk.cretaciouspark.models.dinos.impl.Joeasaurus;
-import com.ofisk.cretaciouspark.models.dinos.impl.Velociraptor;
-import com.ofisk.cretaciouspark.models.plants.Plant;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -61,7 +57,7 @@ public class ParkFactory {
         }
 
         for(int i = 0; i < _numJoeasaurus; i++) {
-            result.add(new Joeasaurus(park));
+            result.add(new Oviraptor(park));
         }
 
         return result;

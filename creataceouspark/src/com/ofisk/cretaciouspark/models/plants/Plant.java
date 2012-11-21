@@ -3,6 +3,9 @@ package com.ofisk.cretaciouspark.models.plants;
 import com.ofisk.cretaciouspark.models.shared.Position;
 import com.ofisk.cretaciouspark.models.Food;
 import com.ofisk.cretaciouspark.models.Park;
+import com.ofisk.cretaciouspark.views.tools.GameColors;
+
+import java.awt.Color;
 
 public class Plant implements Food {
     private int _calorieWorth;
@@ -33,6 +36,16 @@ public class Plant implements Food {
     public Plant setParkAndPosition(Park park) {
         _position = park.assignRandomStart(this);
         return this;
+    }
+
+    @Override
+    public Color getColor() {
+        return GameColors.GRASS_GREEN;
+    }
+
+    @Override
+    public String getToken() {
+        return "P";
     }
 
     @Override

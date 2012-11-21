@@ -4,10 +4,7 @@ import com.ofisk.cretaciouspark.models.Food;
 import com.ofisk.cretaciouspark.models.Park;
 import com.ofisk.cretaciouspark.models.ParkObject;
 import com.ofisk.cretaciouspark.models.dinos.Dinosaur;
-import com.ofisk.cretaciouspark.models.dinos.impl.Joeasaurus;
-import com.ofisk.cretaciouspark.models.dinos.impl.Triceratops;
-import com.ofisk.cretaciouspark.models.dinos.impl.Velociraptor;
-import com.ofisk.cretaciouspark.models.plants.Plant;
+import com.ofisk.cretaciouspark.views.tools.GameColors;
 
 import javax.swing.JFrame;
 import java.awt.Color;
@@ -38,37 +35,20 @@ public class BasicFrame extends JFrame {
                     for(ParkObject object : objects) {
                         if(object instanceof Food) {
 
+                            //Choose color
                             if (object instanceof Dinosaur && ((Dinosaur) object).isDead()) {
-                                g2D.setColor(Color.YELLOW);
-                            }
-
-                            if(((Food) object).isPoisonousToEat()) {
-                                g2D.setColor(Color.MAGENTA);
+                                g2D.setColor(GameColors.DEAD_GRAY);
+                            } else if(object == _park.getWinner()) {
+                                g2D.setColor(GameColors.WINNER_GOLD);
                             } else {
-                                if(object instanceof Plant) {
-                                    g2D.setColor(Color.GREEN);
-                                } else if (object instanceof Velociraptor) {
-                                    g2D.setColor(Color.RED);
-                                } else if (object instanceof Triceratops) {
-                                    g2D.setColor(Color.BLUE);
-                                } else if (object instanceof Joeasaurus) {
-                                    g2D.setColor(Color.RED);
+                                if(((Food) object).isPoisonousToEat()) {
+                                    g2D.setColor(GameColors.POISONOUS_PURPLE);
+                                } else {
+                                    g2D.setColor(object.getColor());
                                 }
                             }
 
-                            if(object == _park.getWinner()) {
-                                g2D.setColor(Color.BLACK);
-                            }
-
-                            if(object instanceof Plant) {
-                                g2D.drawString("P", j * 10, k * 10);
-                            } else if (object instanceof Velociraptor) {
-                                g2D.drawString("V", j * 10, k * 10);
-                            } else if (object instanceof Triceratops) {
-                                g2D.drawString("T", j * 10, k * 10);
-                            } else if (object instanceof Joeasaurus) {
-                                g2D.drawString("J", j * 10, k * 10);
-                            }
+                            g2D.drawString(object.getToken(), j * 10, k * 10);
                         }
                     }
                 } else {

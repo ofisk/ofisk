@@ -7,13 +7,15 @@ import com.ofisk.cretaciouspark.models.dinos.Dinosaur;
 import com.ofisk.cretaciouspark.models.Food;
 import com.ofisk.cretaciouspark.models.Park;
 import com.ofisk.cretaciouspark.models.ParkObject;
+import com.ofisk.cretaciouspark.views.tools.GameColors;
 
+import java.awt.Color;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
 
-public class Joeasaurus extends Dinosaur {
-    private static final String _name = "com.ofisk.cretaciouspark.models.dinos.impl.Joeasaurus";
+public class Oviraptor extends Dinosaur {
+    private static final String _name = "Oviraptor";
     private static final int _initialCalorieCount = 50000;
     private static final int _movementCost = 70;
     private static final int _calorieWorth = 5000;
@@ -21,7 +23,7 @@ public class Joeasaurus extends Dinosaur {
     private Direction _direction = null;
     private int _numTurnsThisDirection = 0;
 
-    public Joeasaurus(Park park) {
+    public Oviraptor(Park park) {
         super(_name, park, _initialCalorieCount, _movementCost, _calorieWorth, _dietType);
     }
 
@@ -78,5 +80,10 @@ public class Joeasaurus extends Dinosaur {
             }
             setPosition(newPosition);
         }
+    }
+
+    @Override
+    public Color getColor() {
+        return GameColors.OVIRAPTOR_ORANGE;
     }
 }
