@@ -1,11 +1,11 @@
 package com.ofisk.cretaciouspark.models;
 
-import com.ofisk.cretaciouspark.models.shared.DietType;
 import com.ofisk.cretaciouspark.factories.ParkFactory;
-import com.ofisk.cretaciouspark.models.shared.Position;
 import com.ofisk.cretaciouspark.models.dinos.Dinosaur;
 import com.ofisk.cretaciouspark.models.dinos.IDinosaur;
 import com.ofisk.cretaciouspark.models.plants.Plant;
+import com.ofisk.cretaciouspark.models.shared.DietType;
+import com.ofisk.cretaciouspark.models.shared.Position;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -164,5 +164,14 @@ public class Park {
 
     public List<ParkObject>[][] getMap() {
         return _map;
+    }
+
+    public void addDino(Dinosaur dinosaur) {
+        _dinosaurs.add(dinosaur);
+        assignRandomStart(dinosaur);
+    }
+
+    public void assignStart(Position position, ParkObject object) {
+        _map[position.getHorizontal()][position.getVertical()].add(object);
     }
 }

@@ -17,11 +17,15 @@ import java.util.Random;
 public class Oviraptor extends Dinosaur {
     private static final String _name = "Oviraptor";
     private static final int _initialCalorieCount = 50000;
-    private static final int _movementCost = 70;
+    private static final int _movementCost = 700;
     private static final int _calorieWorth = 5000;
     private static final DietType _dietType = DietType.OMNIVORE;
     private Direction _direction = null;
     private int _numTurnsThisDirection = 0;
+
+    public Oviraptor() {
+        super(_name, null, _initialCalorieCount, _movementCost, _calorieWorth, _dietType);
+    }
 
     public Oviraptor(Park park) {
         super(_name, park, _initialCalorieCount, _movementCost, _calorieWorth, _dietType);
@@ -74,7 +78,16 @@ public class Oviraptor extends Dinosaur {
             List<ParkObject> objects = new LinkedList<ParkObject>();
             objects.addAll(getPark().getMap()[newPosition.getHorizontal()][newPosition.getVertical()]);
             for(ParkObject object : objects) {
-                if(object instanceof Food) {
+                if(canMate(object)) {
+                    try {
+                        Dinosaur offspring = reproduce((Dinosaur) object);
+                        offspring.setParkAndPosition(getPark(), getPosition());
+                        getPark().addDino(offspring);
+                    }
+                    catch (InstantiationException e) {e.printStackTrace();}
+                    catch (IllegalAccessException e) {e.printStackTrace();}
+                }
+                else if(object instanceof Food) {
                     eat((Food) object);
                 }
             }

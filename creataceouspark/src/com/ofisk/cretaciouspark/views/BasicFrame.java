@@ -10,6 +10,7 @@ import javax.swing.JFrame;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.util.LinkedList;
 import java.util.List;
 
 public class BasicFrame extends JFrame {
@@ -32,7 +33,9 @@ public class BasicFrame extends JFrame {
                 g2D.clearRect(j * 10, k * 10, 10, 10);
                 objects = map[j][k];
                 if(!objects.isEmpty()) {
-                    for(ParkObject object : objects) {
+                    LinkedList<ParkObject> objectsToPaint = new LinkedList<ParkObject>();
+                    objectsToPaint.addAll(objects);
+                    for(ParkObject object : objectsToPaint) {
                         if(object instanceof Food) {
 
                             //Choose color

@@ -15,13 +15,20 @@ import java.util.Random;
 public class ParkFactory {
     private static final int _maxHorizontal = 140;
     private static final int _maxVertical = 90;
+
     private static int _numberOfPlants = (int)(_maxHorizontal * _maxVertical * .95);
     private static final int _percentOfPoisonousPlants = 4;
+
     private static int _maxCalorieWorth = 40;
-    private static int _numVelociraptors = 40;
-    private static int _numTriceratops = 40;
-    private static int _numJoeasaurus = 40;
-    private static long _turnDelayMS = 80;
+
+    private static int _numVelociraptors = 30;
+    private static int _numTriceratopses = 30;
+    private static int _numOviraptors = 0;
+
+    private static long _turnDelayMS = 200;
+    private static int _sexualMaturityAge = 50;
+
+    private static int _matingCooldown = 50;
 
     public static Park newPark() {
         Park newPark = new Park();
@@ -52,11 +59,11 @@ public class ParkFactory {
             result.add(new Velociraptor(park));
         }
         
-        for(int i = 0; i < _numTriceratops; i++) {
+        for(int i = 0; i < _numTriceratopses; i++) {
             result.add(new Triceratops(park));
         }
 
-        for(int i = 0; i < _numJoeasaurus; i++) {
+        for(int i = 0; i < _numOviraptors; i++) {
             result.add(new Oviraptor(park));
         }
 
@@ -83,5 +90,13 @@ public class ParkFactory {
 
     public static long getTurnDelayMS() {
         return _turnDelayMS;
+    }
+
+    public static int getSexualMaturityAge() {
+        return _sexualMaturityAge;
+    }
+
+    public static int getMatingCooldown() {
+        return _matingCooldown;
     }
 }

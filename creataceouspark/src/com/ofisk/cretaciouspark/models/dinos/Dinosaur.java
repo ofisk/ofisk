@@ -1,5 +1,6 @@
 package com.ofisk.cretaciouspark.models.dinos;
 
+import com.ofisk.cretaciouspark.factories.ParkFactory;
 import com.ofisk.cretaciouspark.models.shared.DietType;
 import com.ofisk.cretaciouspark.models.shared.Position;
 import com.ofisk.cretaciouspark.models.Food;
@@ -19,6 +20,8 @@ public abstract class Dinosaur implements IDinosaur {
     private int _turnsSinceDeath = 0;
     private DietType _dietType;
     private boolean _dead = false;
+    private int _age = 0;
+    private int _matingCooldown = 0;
 
     public Dinosaur(String name, Park park, int initialCalorieCount, int movementCost, int calorieWorth, DietType dietType) {
         setName(name);
@@ -27,7 +30,9 @@ public abstract class Dinosaur implements IDinosaur {
         setCalorieWorth(calorieWorth);
         setDietType(dietType);
 
-        setParkAndPosition(park);
+        if(park != null) {
+            setParkAndPosition(park);
+        }
     }
 
     @Override
@@ -38,6 +43,10 @@ public abstract class Dinosaur implements IDinosaur {
     @Override
     public Position move(){
         if(!isDead()) {
+            _age++;
+            if(_matingCooldown > 0) {
+                _matingCooldown--;
+            }
             makeMove();
             incCalorieCount(getMovementCost() * -1);
             if(getCalorieCount() <= 0) {
@@ -180,11 +189,33 @@ public abstract class Dinosaur implements IDinosaur {
 
     public Dinosaur reproduce(Dinosaur mate)
             throws InstantiationException, IllegalAccessException {
+        _matingCooldown = ParkFactory.getMatingCooldown();
         return mate.getClass().newInstance();
     }
 
     @Override
     public String getToken() {
         return getName().charAt(0) + "";
+    }
+
+    public boolean canMate(ParkObject mate) {
+        return getClass().equals(mate.getClass()) &&
+                getAge() >= ParkFactory.getSexualMaturityAge() &&
+                getMatingCooldown() == 0 &&
+                ((Dinosaur)mate).getMatingCooldown() == 0;
+    }
+
+    public int getAge() {
+        return _age;
+    }
+
+    public int getMatingCooldown() {
+        return _matingCooldown;
+    }
+
+    public void setParkAndPosition(Park park, Position position) {
+        setPark(park);
+        setPosition(position);
+        park.assignStart(position, this);
     }
 }

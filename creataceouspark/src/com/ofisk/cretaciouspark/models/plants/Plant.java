@@ -1,8 +1,8 @@
 package com.ofisk.cretaciouspark.models.plants;
 
-import com.ofisk.cretaciouspark.models.shared.Position;
 import com.ofisk.cretaciouspark.models.Food;
 import com.ofisk.cretaciouspark.models.Park;
+import com.ofisk.cretaciouspark.models.shared.Position;
 import com.ofisk.cretaciouspark.views.tools.GameColors;
 
 import java.awt.Color;
@@ -39,6 +39,11 @@ public class Plant implements Food {
     }
 
     @Override
+    public void setParkAndPosition(Park park, Position position) {
+        park.assignStart(position, this);
+    }
+
+    @Override
     public Color getColor() {
         return GameColors.GRASS_GREEN;
     }
@@ -46,12 +51,5 @@ public class Plant implements Food {
     @Override
     public String getToken() {
         return "P";
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("com.ofisk.cretaciouspark.models.plants.Plant:: poisonous: " + _isPoisonous + ", calorie worth: " + _calorieWorth);
-        return sb.toString();
     }
 }

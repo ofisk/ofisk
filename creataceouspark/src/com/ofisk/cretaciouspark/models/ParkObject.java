@@ -9,7 +9,9 @@ public interface ParkObject {
 
     public ParkObject setParkAndPosition(Park park);
 
-    Color getColor();
+    public void setParkAndPosition(Park park, Position position);
 
-    String getToken();
+    public Color getColor();
+
+    public String getToken();
 }

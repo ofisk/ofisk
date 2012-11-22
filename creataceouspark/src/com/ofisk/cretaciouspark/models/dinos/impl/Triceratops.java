@@ -10,6 +10,7 @@ import com.ofisk.cretaciouspark.models.plants.Plant;
 import com.ofisk.cretaciouspark.views.tools.GameColors;
 
 import java.awt.Color;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
 
@@ -17,9 +18,13 @@ public class Triceratops extends Dinosaur {
 
     private static final String _name = "Triceratops";
     private static final int _initCalorieCount = 18000;
-    private static final int _movementCost = 60;
+    private static final int _movementCost = 220;
     private static final int _calorieWorth = 2400;
     private static final DietType _dietType = DietType.HERBIVORE;
+
+    public Triceratops() {
+        super(_name, null, _initCalorieCount, _movementCost, _calorieWorth, _dietType);
+    }
 
     public Triceratops(Park park) {
         super(_name, park, _initCalorieCount, _movementCost, _calorieWorth, _dietType);
@@ -38,8 +43,19 @@ public class Triceratops extends Dinosaur {
             int verticalTranslation = -1;
             for(int j = 0; j < surroundings[0].length; j++) {
                 if((i != 1 || j != 1) && surroundings[i][j] != null) {
-                    for(ParkObject object : surroundings[i][j]) {
-                        if(object instanceof Plant) {
+                    List<ParkObject> surroundingObjects = new LinkedList<ParkObject>();
+                    surroundingObjects.addAll(surroundings[i][j]);
+                    for(ParkObject object : surroundingObjects) {
+                        if(canMate(object)) {
+                            try {
+                                Dinosaur offspring = reproduce((Dinosaur) object);
+                                offspring.setParkAndPosition(getPark(), getPosition());
+                                getPark().addDino(offspring);
+                            }
+                            catch (InstantiationException e) {e.printStackTrace();}
+                            catch (IllegalAccessException e) {e.printStackTrace();}
+                        }
+                        else if(object instanceof Plant) {
                             eat((Food) object);
                             next = getPosition().modify(horizontalTranslation, verticalTranslation);
                             break;

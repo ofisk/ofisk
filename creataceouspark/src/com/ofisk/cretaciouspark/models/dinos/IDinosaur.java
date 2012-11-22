@@ -47,4 +47,10 @@ public interface IDinosaur extends Food, ParkObject {
 
     public Dinosaur reproduce(Dinosaur mate)
             throws InstantiationException, IllegalAccessException;
+
+    public boolean canMate(ParkObject mate);
+
+    public int getAge();
+
+    public int getMatingCooldown();
 }
