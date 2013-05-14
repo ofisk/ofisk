@@ -9,4 +9,4 @@ HIGH-LEVEL DESIGN:
 
 
 CURRENT MILESTONES:
-   [5-13-13] Basic project setup
+   - [5-13-13] Basic project setup
